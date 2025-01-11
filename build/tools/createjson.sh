@@ -116,7 +116,7 @@ else
 }' >> $output
 	cat $output
 	echo 'There is no official support for this device yet'
-	echo 'Consider adding official support by reading the documentation at https://github.com/RisingOSS-devices/android_vendor_RisingOTA/blob/fourteen/README.md'
+	echo 'Consider adding official support by reading the documentation at https://github.com/RisingTechOSS-devices/official_devices/blob/main/README.md'
 fi
 
 echo ""
