@@ -17,8 +17,8 @@
 #
 
 #$1=TARGET_DEVICE, $2=PRODUCT_OUT, $3=FILE_NAME, $4=RISING_VERSION, $5=RISING_CODENAME, $6=RISING_PACKAGE_TYPE, $7=RISING_RELEASE_TYPE
-existingOTAjson=./vendor/risingOTA/$1.json
-output=$2/${6}_$1.json
+existingOTAjson=./vendor/official_devices/OTA/device/$6/$1.json
+output=$2/$1.json
 major_version=$(echo $4 | cut -d'.' -f1)
 
 #cleanup old file
