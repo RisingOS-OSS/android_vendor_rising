@@ -48,22 +48,6 @@ if [ -f $existingOTAjson ]; then
 	if [ ! -z "$forum" ]; then
 		forum="https:"$forum
 	fi
-	gapps=`grep -n "\"gapps\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
-	if [ ! -z "$gapps" ]; then
-		gapps="https:"$gapps
-	fi
-	firmware=`grep -n "\"firmware\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
-	if [ ! -z "$firmware" ]; then
-		firmware="https:"$firmware
-	fi
-	modem=`grep -n "\"modem\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
-	if [ ! -z "$modem" ]; then
-		modem="https:"$modem
-	fi
-	bootloader=`grep -n "\"bootloader\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
-	if [ ! -z "$bootloader" ]; then
-		bootloader="https:"$bootloader
-	fi
 	recovery=`grep -n "\"recovery\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
 	if [ ! -z "$recovery" ]; then
 		recovery="https:"$recovery
@@ -75,18 +59,6 @@ if [ -f $existingOTAjson ]; then
 	telegram=`grep -n "\"telegram\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
 	if [ ! -z "$telegram" ]; then
 		telegram="https:"$telegram
-	fi
-	dt=`grep -n "\"dt\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
-	if [ ! -z "$dt" ]; then
-		dt="https:"$dt
-	fi
-	common=`grep -n "\"common-dt\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
-	if [ ! -z "$common" ]; then
-		common="https:"$common
-	fi
-	kernel=`grep -n "\"kernel\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
-	if [ ! -z "$kernel" ]; then
-		kernel="https:"$kernel
 	fi
 
 	echo '{
@@ -104,16 +76,9 @@ if [ -f $existingOTAjson ]; then
 			"version": "'$version'",
 			"buildtype": "'$buildtype'",
 			"forum": "'$forum'",
-			"gapps": "'$gapps'",
-			"firmware": "'$firmware'",
-			"modem": "'$modem'",
-			"bootloader": "'$bootloader'",
 			"recovery": "'$recovery'",
 			"paypal": "'$paypal'",
-			"telegram": "'$telegram'",
-			"dt": "'$dt'",
-			"common-dt": "'$common'",
-			"kernel": "'$kernel'"
+			"telegram": "'$telegram'"
 		}
 	]
 }' >> $output
@@ -143,16 +108,9 @@ else
 			"version": "'$version'",
 			"buildtype": "''",
 			"forum": "''",
-			"gapps": "''",
-			"firmware": "''",
-			"modem": "''",
-			"bootloader": "''",
 			"recovery": "''",
 			"paypal": "''",
-			"telegram": "''",
-			"dt": "''",
-			"common-dt": "''",
-			"kernel": "''"
+			"telegram": "''"
 		}
 	]
 }' >> $output
