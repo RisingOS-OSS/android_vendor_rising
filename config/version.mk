@@ -14,15 +14,15 @@ RISING_CODE := $(RISING_VERSION)
 RISING_BUILD_DATE := $(shell date +%y%m%d%H)
 
 CURRENT_DEVICE := $(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
-MAINTAINER_LIST := $(shell cat vendor/risingOTA/risingOS.maintainers)
-DEVICE_LIST := $(shell cat vendor/risingOTA/risingOS.devices)
+MAINTAINER_LIST := $(shell cat vendor/official_devices/OTA/risingOS.maintainers)
+DEVICE_LIST := $(shell cat vendor/official_devices/OTA/risingOS.devices)
 
 RISING_BUILDTYPE := COMMUNITY
 
 ifeq ($(WITH_GMS), true)
 	ifeq ($(TARGET_CORE_GMS), true)
     	RISING_PACKAGE_TYPE ?= CORE
-	else 
+	else
     	RISING_PACKAGE_TYPE ?= GAPPS
 	endif
 else
