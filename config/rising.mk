@@ -6,7 +6,6 @@ ifeq ($(WITH_GMS),true)
 endif
 include vendor/rising/config/properties.mk
 include vendor/rising/config/packages.mk
-include vendor/rising/config/vars.mk
 include vendor/rising/config/version.mk
 include vendor/rising/audio/audio.mk
 include vendor/rising/overlays/build.mk
@@ -15,7 +14,6 @@ ifeq ($(WITH_PIXEL_OVERLAYS),true)
 -include vendor/pixeloverlays/config.mk
 endif
 -include vendor/google/mainline_modules/config.mk
-
 
 PRODUCT_SOONG_NAMESPACES += \
     vendor/rising/common
@@ -52,3 +50,5 @@ PRODUCT_PACKAGES += libtensorflowlite_jni
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/lib/libtensorflowlite_jni.so \
  	system/lib64/libtensorflowlite_jni.so
+ 	
+$(call inherit-product, vendor/rising/config/vars.mk)
