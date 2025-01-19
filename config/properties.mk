@@ -94,11 +94,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
     
 # lmk 
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.lmk.critical_upgrade=true \
-    ro.lmk.upgrade_pressure=40 \
-    ro.lmk.downgrade_pressure=60 \
-    ro.lmk.kill_heaviest_task=false \
-    ro.lmk.medium=700
+    ro.lmk.critical_upgrade?=true \
+    ro.lmk.upgrade_pressure?=40 \
+    ro.lmk.downgrade_pressure?=60 \
+    ro.lmk.kill_heaviest_task?=false \
+    ro.lmk.medium?=700
 
 # Permissions
 PRODUCT_PRODUCT_PROPERTIES += \
